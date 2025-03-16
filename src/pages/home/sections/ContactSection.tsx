@@ -10,7 +10,7 @@ const ContactSection = () => {
       scrollTrigger: {
         trigger: container.current,
         start: '-=500',
-        end: '+=500',
+        end: '+=300',
         scrub: true,
       },
       opacity: 1,
