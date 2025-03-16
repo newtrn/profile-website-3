@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import 'tailwindcss';
+
+:root {
+  --primary-background: #f3f3f3;
+  --primary-text-color: #111;
+  --gradient-primary-color: #f64c32;
+  --gradient-primary-color-rgb: 246, 76, 50;
+  --gradient-secondary-color: #5c0a98;
+  --gradient-secondary-color-rgb: 92, 10, 152;
+}
+
+@theme {
+  --color-primary-background: #f3f3f3;
+  --color-primary-text-color: #111;
+  --color-gradient-primary-color: #f64c32;
+  --color-gradient-secondary-color: #5c0a98;
+}
+
+@utility container {
+  padding-inline: 16px;
+  margin-inline: auto;
+
+  @variant md {
+    padding-inline: 6%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-background);
+  color: var(--primary-text-color);
+  -ms-overflow-style: none;
+  /* scrollbar-width: none; */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.primary-gradient-circle {
+  background: radial-gradient(circle, rgba(var(--gradient-primary-color-rgb), 0.8) 0, rgba(var(--gradient-primary-color-rgb), 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+}
+
+.secondary-gradient-circle {
+  background: radial-gradient(circle, rgba(var(--gradient-secondary-color-rgb), 0.8) 0, rgba(var(--gradient-secondary-color-rgb), 0) 50%) no-repeat;
+  mix-blend-mode: hard-light;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--gradient-primary-color), var(--gradient-secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+svg.text-gradient path {
+  fill: linear-gradient(to right, var(--gradient-primary-color), var(--gradient-secondary-color));
+}
+
+@keyframes move-in-circle {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(30px, -30px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes move-in-circle-reverse {
+  0% {
+    transform: translate(30px, -30px);
+  }
+  50% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(30px, -30px);
+  }
+}
