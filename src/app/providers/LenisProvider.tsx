@@ -5,7 +5,6 @@ import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import 'lenis/dist/lenis.css'
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger)

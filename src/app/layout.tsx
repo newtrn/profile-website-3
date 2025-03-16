@@ -1,4 +1,6 @@
 import '@/styles/globals.css'
+import 'lenis/dist/lenis.css'
+
 import LenisProvider from './providers/LenisProvider'
 
 export default function RootLayout({
