@@ -8,6 +8,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>suppawits.</title>
+        <meta name="description" content="suppawit is a frontend dev." />
+      </head>
       <body>
         <LenisProvider>{children}</LenisProvider>
       </body>
