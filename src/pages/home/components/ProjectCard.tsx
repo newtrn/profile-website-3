@@ -14,27 +14,25 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title1, title2, subtitle, detail, image, textSide, border }: ProjectCardProps) => {
-  const { color1, color2 } = border
-  console.log(color1, color2)
   return (
     <Link href="https://portfolio.suppawit.dev/" target="_blank" className="project-card">
       <div className="card-border">
         <svg>
           <defs>
             <linearGradient id="grad-orange" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: color1, stopOpacity: 1 }}></stop>
-              <stop offset="100%" style={{ stopColor: color2, stopOpacity: 1 }}></stop>
+              <stop offset="0%" style={{ stopColor: border.color1, stopOpacity: 1 }}></stop>
+              <stop offset="100%" style={{ stopColor: border.color2, stopOpacity: 1 }}></stop>
             </linearGradient>
-            <linearGradient id={`grad-${color1}-${color2}`} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color={color1}></stop>
-              <stop offset="100%" stop-color={color2}></stop>
+            <linearGradient id={`grad-${border.color1}-${border.color2}`} x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color={border.color1}></stop>
+              <stop offset="100%" stop-color={border.color2}></stop>
             </linearGradient>
           </defs>
           <rect
             id="rect-grad"
             className="rect-gradient"
             fill="none"
-            stroke={`url(#grad-${color1}-${color2})`}
+            stroke={`url(#grad-${border.color1}-${border.color2})`}
             stroke-linecap="square"
             stroke-width="4"
             stroke-miterlimit="30"
