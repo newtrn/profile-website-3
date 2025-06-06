@@ -31,7 +31,7 @@ const ExperienceSection = () => {
   return (
     <div ref={container} className="experience-wrapper opacity-0">
       <div className="text-2xl lg:text-4xl font-bold mb-10">Experiences</div>
-      <div className="grid grid-cols-2 gap-4 grid-cols-[70px_1fr] md:grid-cols-[150px_1fr] lg:grid-cols-[300px_1fr]">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-[150px_1fr] lg:grid-cols-[300px_1fr]">
         <div className="flex items-start md:items-end text-xs md:text-sm lg:text-base">June 2023 - Present</div>
         <div className="flex items-start flex-col md:flex-row md:items-end gap-0.5 md:gap-2 lg:gap-4">
           <span className="text-base md:text-xl lg:text-3xl inline-block">Senior Frontend Devloper</span>

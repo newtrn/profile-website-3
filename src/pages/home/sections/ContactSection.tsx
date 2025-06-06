@@ -9,11 +9,12 @@ const ContactSection = () => {
     gsap.to('.contact-wrapper', {
       scrollTrigger: {
         trigger: container.current,
-        start: '-=500',
-        end: '+=300',
-        scrub: true,
+        start: 'top bottom',
+        toggleActions: 'play reverse play reverse',
       },
       opacity: 1,
+      y: -100,
+      duration: 2,
       ease: 'expo.out',
     })
   }, [])
