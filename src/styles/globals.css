@@ -67,13 +67,25 @@ body::-webkit-scrollbar {
 }
 
 .primary-gradient-circle {
-  background: radial-gradient(circle, rgba(var(--gradient-primary-color-rgb), 0.8) 0, rgba(var(--gradient-primary-color-rgb), 0) 50%) no-repeat;
-  mix-blend-mode: hard-light;
+  /* background: radial-gradient(circle, rgba(var(--gradient-primary-color-rgb), 0.8) 0, rgba(var(--gradient-primary-color-rgb), 0) 50%) no-repeat; */
+  /* mix-blend-mode: hard-light; */
+  background: var(--gradient-primary-color);
+  filter: blur(60px);
+  opacity: 0.9;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+  animation: dot-animation-1 20s infinite ease-in-out;
 }
 
 .secondary-gradient-circle {
-  background: radial-gradient(circle, rgba(var(--gradient-secondary-color-rgb), 0.8) 0, rgba(var(--gradient-secondary-color-rgb), 0) 50%) no-repeat;
-  mix-blend-mode: hard-light;
+  /* background: radial-gradient(circle, rgba(var(--gradient-secondary-color-rgb), 0.8) 0, rgba(var(--gradient-secondary-color-rgb), 0) 50%) no-repeat;
+  mix-blend-mode: hard-light; */
+  background: var(--gradient-secondary-color);
+  filter: blur(60px);
+  opacity: 0.9;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+  animation: dot-animation-2 20s infinite ease-in-out;
 }
 
 .text-gradient {
@@ -96,107 +108,6 @@ svg.text-gradient path {
   width: 0;
   background: transparent;
 }
-
-/* .project-card {
-  position: relative;
-  display: block;
-  width: 400px;
-  height: 400px;
-  padding: 20px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.card-border,
-.image-wrapper,
-.image-wrapper img {
-  transition: all 0.25s ease-in-out 0s;
-}
-
-.card-border {
-  position: absolute;
-  top: 40px;
-  left: -40px;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
-
-.card-border svg {
-  width: 100%;
-  height: 100%;
-}
-
-.card-border,
-.image-wrapper {
-  transform: rotate(-10deg) skew(-10deg);
-}
-
-.image-wrapper {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform: rotate(-10deg) skew(-10deg);
-  overflow: hidden;
-  background: white;
-}
-
-.image-wrapper img {
-  transform: scale3d(0.9, 0.9, 0.9);
-  opacity: 0.3;
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.text-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 85%;
-  text-transform: uppercase;
-  color: #dac527;
-  z-index: 100;
-}
-
-.text-wrapper .sub-title,
-.text-wrapper .title,
-.text-wrapper .detail {
-  opacity: 0;
-}
-
-.text-wrapper .sub-title {
-  display: block;
-  transform: rotate(270deg) translateY(-100%) translateX(calc(-100% - 80px));
-  transform-origin: top left;
-  position: absolute;
-  left: 0;
-  top: 8px;
-  font-size: 24px;
-  font-weight: 900;
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
-}
-
-.text-wrapper .title:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.text-wrapper .title {
-  font-size: 62px;
-  display: block;
-  transform: translateX(-80px);
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
-  color: black;
-}
-
-.text-wrapper .detail {
-  display: block;
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.14s;
-  transform: translateX(-80px);
-} */
 
 .project-card {
   position: relative;
@@ -340,6 +251,34 @@ svg.text-gradient path {
   animation: draw-line 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
+@media screen and (max-width: 560px) {
+  .project-card {
+    width: 300px;
+    height: 300px;
+  }
+
+  .card-img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .card-copy-title {
+    font-size: 32px;
+  }
+
+  .card-copy-subtitle {
+    font-size: 16px;
+  }
+
+  .card-copy-detail {
+    font-size: 16px;
+  }
+
+  .card-copy--left {
+    left: -15%;
+  }
+}
+
 @keyframes draw-line {
   from {
     stroke-dashoffset: 2000;
@@ -386,5 +325,35 @@ svg.text-gradient path {
   }
   100% {
     transform: translate(30px, -30px);
+  }
+}
+
+@keyframes dot-animation-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(200px, 100px);
+  }
+  66% {
+    transform: translate(100px, 300px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes dot-animation-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-150px, 200px);
+  }
+  66% {
+    transform: translate(50px, 100px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
