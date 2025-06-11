@@ -19,6 +19,7 @@
   --color-primary-text-color: #111;
   --color-gradient-primary-color: #f64c32;
   --color-gradient-secondary-color: #5c0a98;
+  --animate-horizontal-bounce: horizontal-bounce 1s ease-in-out infinite;
 }
 
 @utility container {
@@ -67,13 +68,25 @@ body::-webkit-scrollbar {
 }
 
 .primary-gradient-circle {
-  background: radial-gradient(circle, rgba(var(--gradient-primary-color-rgb), 0.8) 0, rgba(var(--gradient-primary-color-rgb), 0) 50%) no-repeat;
-  mix-blend-mode: hard-light;
+  /* background: radial-gradient(circle, rgba(var(--gradient-primary-color-rgb), 0.8) 0, rgba(var(--gradient-primary-color-rgb), 0) 50%) no-repeat; */
+  /* mix-blend-mode: hard-light; */
+  background: var(--gradient-primary-color);
+  filter: blur(60px);
+  opacity: 0.9;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+  animation: dot-animation-1 20s infinite ease-in-out;
 }
 
 .secondary-gradient-circle {
-  background: radial-gradient(circle, rgba(var(--gradient-secondary-color-rgb), 0.8) 0, rgba(var(--gradient-secondary-color-rgb), 0) 50%) no-repeat;
-  mix-blend-mode: hard-light;
+  /* background: radial-gradient(circle, rgba(var(--gradient-secondary-color-rgb), 0.8) 0, rgba(var(--gradient-secondary-color-rgb), 0) 50%) no-repeat;
+  mix-blend-mode: hard-light; */
+  background: var(--gradient-secondary-color);
+  filter: blur(60px);
+  opacity: 0.9;
+  mix-blend-mode: soft-light;
+  will-change: transform;
+  animation: dot-animation-2 20s infinite ease-in-out;
 }
 
 .text-gradient {
@@ -95,249 +108,6 @@ svg.text-gradient path {
   display: none;
   width: 0;
   background: transparent;
-}
-
-/* .project-card {
-  position: relative;
-  display: block;
-  width: 400px;
-  height: 400px;
-  padding: 20px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.card-border,
-.image-wrapper,
-.image-wrapper img {
-  transition: all 0.25s ease-in-out 0s;
-}
-
-.card-border {
-  position: absolute;
-  top: 40px;
-  left: -40px;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
-
-.card-border svg {
-  width: 100%;
-  height: 100%;
-}
-
-.card-border,
-.image-wrapper {
-  transform: rotate(-10deg) skew(-10deg);
-}
-
-.image-wrapper {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform: rotate(-10deg) skew(-10deg);
-  overflow: hidden;
-  background: white;
-}
-
-.image-wrapper img {
-  transform: scale3d(0.9, 0.9, 0.9);
-  opacity: 0.3;
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.text-wrapper {
-  position: absolute;
-  bottom: 0;
-  left: 85%;
-  text-transform: uppercase;
-  color: #dac527;
-  z-index: 100;
-}
-
-.text-wrapper .sub-title,
-.text-wrapper .title,
-.text-wrapper .detail {
-  opacity: 0;
-}
-
-.text-wrapper .sub-title {
-  display: block;
-  transform: rotate(270deg) translateY(-100%) translateX(calc(-100% - 80px));
-  transform-origin: top left;
-  position: absolute;
-  left: 0;
-  top: 8px;
-  font-size: 24px;
-  font-weight: 900;
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
-}
-
-.text-wrapper .title:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.text-wrapper .title {
-  font-size: 62px;
-  display: block;
-  transform: translateX(-80px);
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
-  color: black;
-}
-
-.text-wrapper .detail {
-  display: block;
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.14s;
-  transform: translateX(-80px);
-} */
-
-.project-card {
-  position: relative;
-  display: block;
-  width: 400px;
-  height: 400px;
-  padding: 20px;
-  color: inherit;
-  text-decoration: none;
-}
-.card-border {
-  position: absolute;
-  top: 40px;
-  left: -40px;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
-
-.card-border svg {
-  height: 100%;
-  width: 100%;
-}
-
-.rect-gradient {
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  animation: erase-line 1s ease-in-out forwards;
-}
-
-.card-img-wrapper {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform: rotate(-10deg) skew(-10deg);
-  overflow: hidden;
-  background: white;
-}
-
-.card-img {
-  transform: scale3d(0.9, 0.9, 0.9);
-  opacity: 0.3;
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.card-copy {
-  position: absolute;
-  bottom: 0;
-  left: 85%;
-  text-transform: uppercase;
-  color: #aaaaaa;
-  z-index: 100;
-}
-
-.card-copy--left {
-  left: -25%;
-}
-
-.card-copy-title {
-  font-size: 48px;
-  display: block;
-  transform: translateX(-var(--animation-offset));
-  transition: var(--transition-cubic-bezier) 0s;
-  color: black;
-  line-height: 1;
-}
-
-.card-copy-title:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.card-copy-title:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.card-copy-subtitle {
-  display: block;
-  transform: rotate(270deg) translateY(-100%) translateX(calc(-100% - var(--animation-offset)));
-  transform-origin: top left;
-  position: absolute;
-  left: 0;
-  top: 8px;
-  font-size: 24px;
-  font-weight: 900;
-  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.35s;
-}
-
-.card-copy-detail {
-  display: block;
-  transition: var(--transition-cubic-bezier) 0.14s;
-  transform: translateX(-var(--animation-offset));
-}
-
-.card-border,
-.card-img-wrapper,
-.card-img {
-  transition: var(--transition-ease-in-out);
-}
-.card-border,
-.card-img-wrapper {
-  transform: rotate(-10deg) skew(-10deg);
-}
-.card-copy-title,
-.card-copy-subtitle,
-.card-copy-detail {
-  opacity: 0;
-}
-
-.project-card:hover .card-copy-title,
-.project-card:hover .card-copy-subtitle,
-.project-card:hover .card-copy-detail,
-.project-card:hover .card-img {
-  opacity: 1;
-}
-
-.project-card:hover .card-border,
-.project-card:hover .card-img-wrapper {
-  transform: rotate(-14deg) skew(-14deg) scale(0.96);
-}
-
-.project-card:hover .card-img {
-  transform: scale3d(1, 1, 1);
-}
-
-.project-card:hover .card-copy-title,
-.project-card:hover .card-copy-detail {
-  transform: translateX(0);
-}
-
-.project-card:hover .card-copy-subtitle {
-  transform: rotate(270deg) translateY(-100%) translateX(-100%);
-}
-
-.project-card:hover .rect-gradient {
-  animation: draw-line 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 @keyframes draw-line {
@@ -386,5 +156,45 @@ svg.text-gradient path {
   }
   100% {
     transform: translate(30px, -30px);
+  }
+}
+
+@keyframes dot-animation-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(200px, 100px);
+  }
+  66% {
+    transform: translate(100px, 300px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes dot-animation-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-150px, 200px);
+  }
+  66% {
+    transform: translate(50px, 100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes horizontal-bounce {
+  0%,
+  100% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
   }
 }
