@@ -19,64 +19,6 @@ const HomePage = () => {
 
   useGSAP(
     () => {
-      // gsap.to('.primary-gradient-circle', {
-      //   scrollTrigger: {
-      //     trigger: container_1.current,
-      //     start: 'top top',
-      //     end: 'bottom top-=1000',
-      //     scrub: true,
-      //     toggleActions: 'play reverse play reverse',
-      //   },
-      //   top: '55%',
-      //   left: '50%',
-      //   xPercent: -50,
-      //   yPercent: -50,
-      //   width: '400px',
-      //   height: '400px',
-      //   zIndex: 2,
-      //   ease: 'expo.out',
-      // })
-      // gsap.to('.secondary-gradient-circle', {
-      //   scrollTrigger: {
-      //     trigger: container_1.current,
-      //     start: 'top top',
-      //     end: 'bottom top-=1000',
-      //     scrub: true,
-      //     toggleActions: 'play reverse play reverse',
-      //   },
-      //   top: '50%',
-      //   left: '45%',
-      //   xPercent: -50,
-      //   yPercent: -50,
-      //   width: '600px',
-      //   height: '600px',
-      //   zIndex: 1,
-      //   ease: 'expo.out',
-      // })
-
-      // gsap.to('.primary-gradient-circle', {
-      //   scrollTrigger: {
-      //     trigger: container_2.current,
-      //     start: 'top top',
-      //     end: 'bottom top-=1000',
-      //     scrub: true,
-      //     toggleActions: 'play reverse play reverse',
-      //   },
-      //   opacity: 0,
-      //   ease: 'expo.out',
-      // })
-      // gsap.to('.secondary-gradient-circle', {
-      //   scrollTrigger: {
-      //     trigger: container_2.current,
-      //     start: 'top top',
-      //     end: 'bottom top-=1000',
-      //     scrub: true,
-      //     toggleActions: 'play reverse play reverse',
-      //   },
-      //   opacity: 0,
-      //   ease: 'expo.out',
-      // })
-
       gsap.to('.banner-wrapper', {
         scrollTrigger: {
           trigger: container_1.current,
@@ -88,17 +30,6 @@ const HomePage = () => {
         opacity: 0,
         ease: 'expo.out',
       })
-
-      gsap.from('.divider-1', {
-        scrollTrigger: {
-          trigger: '.divider-1',
-          start: 'top top+=500',
-          toggleActions: 'play reverse play reverse',
-        },
-        width: 0,
-        duration: 1.5,
-        ease: 'expo.out',
-      })
     },
     { scope: container }
   )
@@ -106,8 +37,8 @@ const HomePage = () => {
   return (
     <div className="relative overflow-hidden pb-10" ref={container}>
       <div className="h-screen w-screen z-0 absolute top-0 left-0 bg-grandient">
-        <div className="absolute -right-[150px] -top-[100px] w-[600px] h-[600px] rounded-full primary-gradient-circle" />
-        <div className="absolute -right-[200px] -top-[150px] w-[500px] h-[500px] rounded-full secondary-gradient-circle" />
+        <div className="absolute -right-[150px] -top-[500px] md:top-[50px] w-[600px] h-[600px] rounded-full primary-gradient-circle" />
+        <div className="absolute -right-[200px] -top-[450px] md:top-[100px] w-[500px] h-[500px] rounded-full secondary-gradient-circle" />
       </div>
       <Header />
       <div className="container flex flex-col justify-center h-full relative z-10 container-1" ref={container_1}>
@@ -117,14 +48,15 @@ const HomePage = () => {
         <ExperienceSection />
       </div>
       <div />
-      <div className="container overflow-hidden">
-        <div className="divider-1 bg-[#c8c8c9] w-full h-[1px]" />
-      </div>
       <div ref={container_3} className="container flex flex-col justify-center h-full relative z-10 py-10">
         <ProjectSection />
       </div>
       <div className="min-h-[500px] container-3 relative z-10 pt-[400px]">
         <ContactSection />
+      </div>
+      <div className="h-screen w-screen z-0 absolute bottom-0 left-0 bg-grandient">
+        <div className="absolute -left-[200px] -bottom-[50px] w-[600px] h-[600px] rounded-full primary-gradient-circle" />
+        <div className="absolute left-[100px] -bottom-[200px] w-[500px] h-[500px] rounded-full secondary-gradient-circle" />
       </div>
     </div>
   )
